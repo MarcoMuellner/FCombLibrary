@@ -68,7 +68,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name='FCombLibrary',
-    version='1.0.0',
+    version='1.0.2',
     author='Marco Müllner',
     author_email='muellnermarco@gmail.com',
     description='A tool for extracting frequency combination from a given list of frequencies.',

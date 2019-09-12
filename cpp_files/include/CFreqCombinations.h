@@ -61,9 +61,6 @@ typedef CFrequency* SelectedFreq;
 
 CFreqArray      mFreqArray;
 CFreqArray      mFreqCompositionArray;
-//typedef TSortUpList<CFrequencyComposition> CFreqCompoArray;
-//CFreqCompoArray mFreqCompositionArray;
-
 
 bool showdetails = false;
 
@@ -251,6 +248,7 @@ CFrequencyComposition checkForComposition(int fnum, double freq, double ampl, in
 
     // select the simplest composition
     string scompo="";
+    string full = "";
     double weight=-1.0;
     double offset=-1.0;
     double mufactor=-1.0;
@@ -262,6 +260,8 @@ CFrequencyComposition checkForComposition(int fnum, double freq, double ampl, in
         istr >> df;
         istr >> iw;
         istr >> mu;
+        full.append(";");
+        full.append(sc);
         if (showdetails)
             cout << sc << " " << df << " " << iw << " " << iw/df << endl;
         //if (iw>weight && mu>0.0) { // this would be very strict!
@@ -272,7 +272,7 @@ CFrequencyComposition checkForComposition(int fnum, double freq, double ampl, in
             mufactor=mu;
         }
     }
-
+    scompo.append(full);
     return CFrequencyComposition(fnum, freq, scompo);
 }
 
@@ -298,7 +298,7 @@ std::pair<std::list<string>,std::list<string> > get_combinations(vector <FData> 
             mFreqArray.add( CFrequency(data.f_num ,data.freq,data.ampl) );
             ostringstream ostr;
             ostr << "f" << data.f_num;
-            comp_strings.push_back(ostr.str());
+            independent_strings.push_back(ostr.str());
         }
     }
 
