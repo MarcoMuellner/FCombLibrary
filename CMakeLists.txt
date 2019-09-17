@@ -4,7 +4,7 @@ project(FreqCombinator)
 cmake_minimum_required(VERSION 3.10)
 # Specify the location of the header files
 
-include_directories(cpp_files/include)
+include_directories(include)
 include_directories(cpp_files/python_wrapper/include)
 
 #source files
@@ -22,11 +22,11 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 endif()
 
 
-add_subdirectory(cpp_files/pybind11)
+add_subdirectory(pybind11)
 
 SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 SET(BUILD_SHARED_LIBRARIES OFF)
 SET(CMAKE_EXE_LINKER_FLAGS "-static")
 
 
-pybind11_add_module(FCombLibrary cpp_files/python_wrapper/FreqCombiner.cpp)
+pybind11_add_module(FCombLibrary python_wrapper/FreqCombiner.cpp)

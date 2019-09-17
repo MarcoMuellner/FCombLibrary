@@ -68,7 +68,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name='FCombLibrary',
-    version='1.0.2',
+    version='1.0.7',
     author='Marco Müllner',
     author_email='muellnermarco@gmail.com',
     description='A tool for extracting frequency combination from a given list of frequencies.',
@@ -77,5 +77,6 @@ setup(
     ext_modules=[CMakeExtension('FCombLibrary')],
     # add custom build_ext command
     cmdclass=dict(build_ext=CMakeBuild),
+    package_dir={ '': '.' },
     zip_safe=False,
 )
