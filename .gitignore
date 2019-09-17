@@ -108,3 +108,5 @@ venv.bak/
 cpp_files/cmake-build-debug/
 
 venv_3_6/
+
+cmake-build-debug/

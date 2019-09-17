@@ -5,10 +5,10 @@ cmake_minimum_required(VERSION 3.10)
 # Specify the location of the header files
 
 include_directories(include)
-include_directories(cpp_files/python_wrapper/include)
+include_directories(python_wrapper/include)
 
 #source files
-file(GLOB sourceFiles cpp_files/src/*.cpp)
+file(GLOB sourceFiles src/*.cpp)
 
 #compiler messages
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall")
